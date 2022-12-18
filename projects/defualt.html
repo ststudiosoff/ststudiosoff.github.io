@@ -1,0 +1,64 @@
+<html lang="en">
+    <head>
+        <title>ST Studios - Home</title>
+        <link rel="stylesheet" href="/src/css/index.css">
+    </head>
+    <body>
+        <div id="nav">
+            <a href="https://ststudiosoff.github.io"><button><h3>Home</h3></button></a>
+            <a href="https://ststudiosoff.github.io/projects.html"><button><h3>Projects</h3></button></a>
+        </div>
+        <hr>
+        <center><h2>Javascript</h2></center>
+        <center>
+            <code>app.js</code>
+            <code>
+                const http = require('http')
+                const fs = require('fs')
+                const port = 1131
+
+                const server = http.createServer(function(req,res) {
+                    res.writeHead(200, {'Content-Type':'text/html'})
+                    fs.readFile('app.html',function(error,data) {
+                        if (error) {
+                            res.writeHead(404)
+                            res.write('404-File Not Found!')
+                        } else {
+                            res.write(data)
+                        }
+                        res.end()
+                    })
+                })  
+
+                server.listen(port, function(error) {
+                    if (error) {
+                        console.log('Somthing went wrong!:'+error)
+                    } else {
+                        console.log('Server is on port:'+port)
+                    }
+                })
+            </code>
+        </center>
+        <hr>
+        <center><h2>HTML (Example)</h2></center>
+        <center>
+            <code>app.html</code>
+            <code>
+                <html lang="en">
+                    <head>
+                        <title>Test</title>
+                    </head>
+                <body>
+                    <h1>My Webpage!</h1>
+                </body>
+                </html>
+            </code>
+        </center>
+        <hr>
+        <center><h2>Running the server!</h2></center>
+        <center>
+            <h5>Terminal Command</h5>
+            <code>$ node app.js</code>
+        </center>
+    </body>
+</html>
